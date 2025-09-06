@@ -1,0 +1,19 @@
+{
+  "name": "context-vs-zustand",
+  "private": true,
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "dev:context": "pnpm --filter context-app dev",
+    "dev:zustand": "pnpm --filter zustand-app dev",
+    "dev:all": "concurrently \"pnpm dev:context\" \"pnpm dev:zustand\"",
+    "build": "pnpm --filter './apps/*' build",
+    "lint": "pnpm --recursive lint"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "concurrently": "^9.2.1",
+    "typescript": "^5"
+  },
+  "packageManager": "pnpm@10.12.4"
+}
