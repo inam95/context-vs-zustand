@@ -1,7 +1,6 @@
+import "@context-vs-zustand/shared-ui/globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import "@context-vs-zustand/shared-ui/globals.css";
-import { ThemeProvider } from "../contexts/theme-context";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -21,9 +20,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} antialiased`}>
-        <ThemeProvider>{children}</ThemeProvider>
-      </body>
+      <body className={`${inter.variable} antialiased`}>{children}</body>
     </html>
   );
 }
