@@ -43,8 +43,6 @@ export const useThemeStore = create<ThemeState>()(
   )
 );
 
-useThemeStore.devtools.cleanup();
-
 if (typeof window !== "undefined") {
   const { theme } = useThemeStore.getState();
   const root = document.documentElement;
