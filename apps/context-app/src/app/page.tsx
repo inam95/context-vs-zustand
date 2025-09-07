@@ -2,6 +2,7 @@
 
 import { ThemeToggle } from "../components/theme-toggle";
 import { ThemeDemo } from "../components/theme-demo";
+import DemoCard from "@context-vs-zustand/shared-ui/components/demo-card";
 
 export default function Page() {
   console.log("HomePage rendered"); // For debugging re-renders
@@ -20,19 +21,5 @@ export default function Page() {
         <DemoCard title="Card 3" />
       </div>
     </main>
-  );
-}
-
-function DemoCard({ title }: { title: string }) {
-  console.log(`${title} rendered`); // For debugging re-renders
-
-  return (
-    <div className="p-4 border rounded-lg bg-card text-card-foreground">
-      <h3 className="font-semibold">{title}</h3>
-      <p className="text-muted-foreground mt-2">
-        This card will re-render every time the theme changes, even though it
-        doesn't directly use theme data.
-      </p>
-    </div>
   );
 }
