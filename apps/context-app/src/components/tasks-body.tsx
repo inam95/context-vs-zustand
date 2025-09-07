@@ -6,15 +6,9 @@ import { useTasksContext } from "../contexts/tasks-context";
 export function TasksBody() {
   console.log("Rendering TasksBody");
 
-  const { currentView, tasks, currentFilter } = useTasksContext();
+  const { currentView, tasks } = useTasksContext();
 
-  const filteredTasks = currentFilter
-    ? tasks.filter(
-        (task) =>
-          task.title.toLowerCase().includes(currentFilter.toLowerCase()) ||
-          task.description.toLowerCase().includes(currentFilter.toLowerCase())
-      )
-    : tasks;
+  const filteredTasks = tasks;
 
   return (
     <div className="flex gap-1">
