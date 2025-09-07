@@ -1,0 +1,37 @@
+"use client";
+
+import React from "react";
+import { Moon, Sun } from "lucide-react";
+import { Button } from "@context-vs-zustand/shared-ui/components/button";
+import { useThemeContext } from "../contexts/theme-context";
+
+interface ThemeToggleProps {
+  showLabel?: boolean;
+}
+
+export function ThemeToggle({ showLabel = false }: ThemeToggleProps) {
+  const { theme, toggleTheme } = useThemeContext();
+
+  console.log("ThemeToggle rendered - Current theme:", theme); // For debugging re-renders
+
+  return (
+    <Button
+      variant="outline"
+      size="sm"
+      onClick={toggleTheme}
+      className="flex items-center gap-2"
+    >
+      {theme === "dark" ? (
+        <>
+          <Sun className="h-4 w-4" />
+          {showLabel && "Light"}
+        </>
+      ) : (
+        <>
+          <Moon className="h-4 w-4" />
+          {showLabel && "Dark"}
+        </>
+      )}
+    </Button>
+  );
+}
