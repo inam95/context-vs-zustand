@@ -1,6 +1,6 @@
 import { useTasksContext } from "../contexts/tasks-context";
 
-export function TaskCount() {
+export function TasksCount() {
   console.log("Rendering TaskCount");
 
   const { tasks } = useTasksContext();
