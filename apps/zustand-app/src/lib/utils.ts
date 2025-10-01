@@ -9,6 +9,7 @@ export const tasks: Task[] = [
       "Update class components to functional components using hooks like useState and useEffect.",
     completed: false,
     user: "Adam",
+    isDeleted: false,
   },
   {
     id: v7(),
@@ -17,6 +18,7 @@ export const tasks: Task[] = [
       "Use React Context to manage and provide theme state across the app.",
     completed: false,
     user: "Adam",
+    isDeleted: false,
   },
   {
     id: v7(),
@@ -25,6 +27,7 @@ export const tasks: Task[] = [
       "Use React.memo and useCallback to prevent unnecessary re-renders.",
     completed: true,
     user: "Mark",
+    isDeleted: false,
   },
   {
     id: v7(),
@@ -33,6 +36,7 @@ export const tasks: Task[] = [
       "Upgrade the project to React 19 and enable concurrent features.",
     completed: false,
     user: "Mark",
+    isDeleted: false,
   },
   {
     id: v7(),
@@ -41,5 +45,6 @@ export const tasks: Task[] = [
       "Write tests for all major components using React Testing Library.",
     completed: false,
     user: "Adam",
+    isDeleted: false,
   },
 ];

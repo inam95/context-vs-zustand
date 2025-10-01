@@ -4,7 +4,7 @@ import { cn } from "@context-vs-zustand/shared-ui/lib/utils";
 import { useTasksStore, allViews } from "../stores/tasks-store";
 
 export function TasksHeader() {
-  console.log("Rendering TasksHeader");
+  console.log("Rendering Views");
 
   const currentView = useTasksStore((state) => state.currentView);
   const setCurrentView = useTasksStore((state) => state.setCurrentView);

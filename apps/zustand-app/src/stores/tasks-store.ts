@@ -1,6 +1,6 @@
 import { create } from "zustand";
 import { persist, devtools } from "zustand/middleware";
-import { tasks as dummyTasks } from "../lib/utils";
+import { tasks as dummyTasks, tasks } from "../lib/utils";
 
 export type Task = {
   id: any;
@@ -8,6 +8,7 @@ export type Task = {
   description: string;
   completed: boolean;
   user: string;
+  isDeleted: boolean;
 };
 
 export type TasksView = "list" | "detailed" | "condensed";
@@ -17,6 +18,7 @@ export type TasksState = {
   setTasks: (tasks: Task[] | ((tasks: Task[]) => Task[])) => void;
   currentView: TasksView;
   setCurrentView: (tasksView: TasksView) => void;
+  deleteTask: (id: string) => void;
 };
 
 export const useTasksStore = create<TasksState>()(
@@ -33,6 +35,28 @@ export const useTasksStore = create<TasksState>()(
         },
         currentView: "list",
         setCurrentView: (newView: TasksView) => set({ currentView: newView }),
+        deleteTask: (id: string) => {
+          set((state) => {
+            return {
+              tasks: state.tasks.map((task) => {
+                if (task.id === id) {
+                  return {
+                    ...task,
+                    isDeleted: true,
+                  };
+                }
+                return task;
+              }),
+            };
+          });
+          setTimeout(() => {
+            set((state) => {
+              return {
+                tasks: state.tasks.filter((task) => task.id !== id),
+              };
+            });
+          }, 5000);
+        },
       }),
       {
         name: "tasks-storage",
